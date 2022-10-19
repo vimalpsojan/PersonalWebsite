@@ -137,7 +137,7 @@ fun FactCell(value: String, valueDes: String, emoji: String, dataPurecounterEnd:
             attr("data-aos-delay", aosDelay)
         }
     }) {
-        Div(attrs = { classes("count-bo") }) {
+        Div(attrs = { classes("count-box") }) {
             I(attrs = { classes("bi", emoji) })
             Span(attrs = {
                 classes("purecounter")
