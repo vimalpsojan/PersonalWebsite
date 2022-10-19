@@ -22,7 +22,7 @@ fun Profile() {
         classes("profile")
     }) {
         Img(src = "assets/img/profile-img.jpg", alt = "", attrs = { classes("img-fluid", "rounded-circle") })
-        H1(attrs = { classes("text-light") }) { A(attrs = { href("index.html") }) { Text(Content.getName()) } }
+        H1(attrs = { classes("text-light") }) { A(attrs = { href("index.html") }) { Text(Content.NAME) } }
         SocialLinks()
     }
 }

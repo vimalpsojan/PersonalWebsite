@@ -17,5 +17,6 @@ fun main() {
 fun MainBody(){
     Main(attrs = { id("main") }) {
         AboutSection()
+        FactsSection()
     }
 }

@@ -22,7 +22,7 @@ fun SocialLinks() {
 fun Twitter() {
     if (Content.haveTwitter()) {
         A(attrs = {
-            href(Content.getTwitter())
+            href(Content.TWITTER)
             classes("twitter")
         }) {
             I(attrs = { classes("bx", "bxl-twitter") })
@@ -34,7 +34,7 @@ fun Twitter() {
 fun Facebook() {
     if (Content.haveFacebook()) {
         A(attrs = {
-            href(Content.getFacebook())
+            href(Content.FACEBOOK)
             classes("facebook")
         }) {
             I(attrs = { classes("bx", "bxl-facebook") })
@@ -46,7 +46,7 @@ fun Facebook() {
 fun Instagram() {
     if (Content.haveInstagram()) {
         A(attrs = {
-            href(Content.getInstagram())
+            href(Content.INSTAGRAM)
             classes("instagram")
         }) {
             I(attrs = { classes("bx", "bxl-instagram") })
@@ -58,7 +58,7 @@ fun Instagram() {
 fun Skype() {
     if (Content.haveSkype()) {
         A(attrs = {
-            href(Content.getSkype())
+            href(Content.SKYPE)
             classes("skype")
         }) {
             I(attrs = { classes("bx", "bxl-skype") })
@@ -70,7 +70,7 @@ fun Skype() {
 fun Linkedin() {
     if (Content.haveLinkedin()) {
         A(attrs = {
-            href(Content.getLinkedin())
+            href(Content.LINKEDIN)
             classes("linkedin")
         }) {
             I(attrs = { classes("bx", "bxl-linkedin") })
@@ -82,7 +82,7 @@ fun Linkedin() {
 fun Github() {
     if (Content.haveGithub()) {
         A(attrs = {
-            href(Content.getGithub())
+            href(Content.GITHUB)
             classes("github")
         }) {
             I(attrs = { classes("bx", "bxl-github") })
