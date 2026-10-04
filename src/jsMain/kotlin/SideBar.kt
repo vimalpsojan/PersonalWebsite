@@ -7,7 +7,7 @@ fun SideBar() {
     Header(attrs = { id("header") }) {
         Div(attrs = { classes("d-flex", "flex-column") }) {
             Div(attrs = { classes("profile") }) {
-                Img(src = "assets/img/profile-img.jpg", alt = "Vimal P Sojan", attrs = { classes("img-fluid", "rounded-circle") })
+                Img(src = "/assets/img/profile-img.jpg", alt = "Vimal P Sojan", attrs = { classes("img-fluid", "rounded-circle") })
                 H2(attrs = { classes("text-light", "profile-name") }) { A(attrs = { href("#hero") }) { Text(Content.getName()) } }
                 SocialLinks()
             }

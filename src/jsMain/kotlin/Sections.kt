@@ -21,12 +21,12 @@ fun AboutSection() {
             SectionTitle("About", Content.getAboutSummary())
             Div(attrs = { classes("row", "align-items-center") }) {
                 Div(attrs = { classes("col-lg-4") }) {
-                    Img(src = "assets/img/profile-img.jpg", alt = "Vimal P Sojan", attrs = { classes("img-fluid", "about-photo") })
+                    Img(src = "/assets/img/profile-img.jpg", alt = "Vimal P Sojan", attrs = { classes("img-fluid", "about-photo") })
                 }
                 Div(attrs = { classes("col-lg-8", "pt-4", "pt-lg-0", "content") }) {
                     H3 { Text(Content.getAboutHeading()) }
                     P { Text(Content.getAboutDetails()) }
-                    P { Text("My day-to-day tools include Kotlin, Java and C++, with Kotlin Multiplatform for exploring shared code across platforms. Earlier work has included banking, transport, shopping and connected-device applications.") }
+                    P { Text("I work mainly with Kotlin, Java and C++, and use Kotlin Multiplatform to explore shared code across platforms.") }
                     P(attrs = { classes("quiet-note") }) { Text("I studied Computer Engineering at Maharaja's Technological Institute in Thrissur.") }
                 }
             }
@@ -42,11 +42,11 @@ fun WorkSection() {
             Div(attrs = { classes("row", "g-4") }) {
                 WorkNote("Accessibility & kiosk software", "At QBurst, I've worked on an Android screen reader for kiosks, including SDK architecture, native integration and support for managed devices.")
                 WorkNote("Android development", "My earlier work includes the ila Bank app through Mindteck, parent and conductor apps at Qaptive, and applications involving messaging, BLE devices and tracking.")
-                WorkNote("SDKs & shared code", "I enjoy building components that other developers can use. More recently, I've been prototyping an embedded screen-reading library with Kotlin Multiplatform. It is still in development.")
+                WorkNote("SDKs & shared code", "I build reusable SDKs, including a screen-reading library being developed with Kotlin Multiplatform.")
             }
             Div(attrs = { classes("patent-note") }) {
                 H3 { Text("Screen reader language switching") }
-                P { Text("I'm a co-inventor on a patent for switching a screen reader's speech language in response to language selections in an application. My contribution included exploring the technical approach and implementing the functionality.") }
+                P { Text("I'm a co-inventor on a patent for screen reader language switching. I contributed to the technical approach and implementation.") }
                 A(attrs = { href("https://patents.google.com/patent/US11656886B1/en") }) { Text("Read the patent · US11656886B1") }
             }
         }
@@ -65,7 +65,7 @@ private fun WorkNote(title: String, description: String) {
 fun ProjectsSection() {
     Section(attrs = { id("projects") }) {
         Div(attrs = { classes("container") }) {
-            SectionTitle("Game development & side projects", "I explore Unreal Engine and game development tools in my spare time, alongside experiments with Kotlin. Most start with something I wanted to try or make easier.")
+            SectionTitle("Game development & side projects", "Personal projects in Unreal Engine, game development tools and Kotlin.")
             Div(attrs = { classes("row", "g-4") }) {
                 Project("SaveGameInspector", "An Unreal Engine editor plugin for inspecting and editing save-game data. I built it for my own workflow and shared it on GitHub.", "SaveGameInspector", "Unreal Engine · C++")
                 Project("AdvancedSaveSystem", "An Unreal Engine save-system project exploring asynchronous saves and reusable runtime components.", "AdvancedSaveSystem", "Unreal Engine · C++")
@@ -94,10 +94,10 @@ private fun Project(title: String, description: String, repo: String, tools: Str
 fun PersonalSection() {
     Section(attrs = { id("personal"); classes("section-bg") }) {
         Div(attrs = { classes("container") }) {
-            SectionTitle("Outside work", "Curiosity tends to carry over into my spare time.")
+            SectionTitle("Outside work", "I enjoy learning by building and running things myself.")
             Div(attrs = { classes("personal-copy") }) {
-                P { Text("I spend some of that time experimenting with a homelab: trying out systems, connecting things and learning by running them myself.") }
-                P { Text("I also explore Unreal Engine and game development tools. Some of those experiments turn into small projects that I share. I like the process of figuring out how something works, even when it stays an experiment.") }
+                P { Text("I run a homelab to experiment with self-hosted services, Linux and networking.") }
+                P { A(attrs = { href("/homelab/") }) { Text("Explore my homelab experiments →") } }
             }
         }
     }
