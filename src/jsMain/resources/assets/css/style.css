@@ -228,7 +228,7 @@ h6 {
 #hero {
   width: 100%;
   height: 100vh;
-  background: url("../img/hero-bg.jpg") top center;
+  background: #0b172c url("../img/hero-illustration.png") center center;
   background-size: cover;
 }
 
@@ -1133,3 +1133,26 @@ button.mobile-nav-toggle { border: 0; padding: 0; }
 }
 
 .initial-content { max-width: 850px; padding: 48px 24px; }
+
+/* Keep the cover illustration visible beside the profile introduction. */
+#hero { position: relative; align-items: flex-start !important; background-attachment: scroll; }
+#hero::before { background: linear-gradient(90deg, rgba(5, 13, 24, .55), rgba(5, 13, 24, .12)); }
+#hero .hero-container { margin-left: 320px; max-width: 620px; }
+#hero .hero-note { max-width: 420px; }
+@media (max-width: 1199px) {
+  #hero .hero-container { margin-left: 24px; }
+}
+@media (max-width: 767px) {
+  #hero { background-position: 65% center; }
+  #hero::before { background: rgba(5, 13, 24, .6); }
+  #hero .hero-container { margin-left: 0; }
+}
+
+/* Make the profile evidence easier to scan. */
+#hero .hero-focus { font-size: 23px; line-height: 1.5; max-width: 510px; margin-bottom: 18px; }
+#hero .hero-note { max-width: 480px; font-size: 17px; line-height: 1.7; }
+.about .about-photo { width: 120px; height: 120px; object-fit: cover; border-radius: 50%; }
+.patent-note { border: 1px solid #dce3e9; border-left: 4px solid #149ddd; border-radius: 8px; }
+.patent-label { font-size: 13px; font-weight: 600; color: #526479; letter-spacing: .04em; margin-bottom: 10px; }
+.project-screenshot { display: block; width: 100%; height: auto; border-radius: 5px; margin-bottom: 20px; background: #202020; }
+@media (max-width: 767px) { #hero .hero-focus { font-size: 19px; } #hero .hero-note { font-size: 15px; } }

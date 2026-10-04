@@ -7,8 +7,8 @@ fun HeroSection() {
     Section(attrs = { id("hero"); classes("d-flex", "flex-column", "justify-content-center", "align-items-center") }) {
         Div(attrs = { classes("hero-container") }) {
             H1 { Text(Content.getName()) }
-            P { Text("Software engineer · Thrissur, Kerala") }
-            P(attrs = { classes("hero-note") }) { Text("Android development, mobile accessibility and game development experiments.") }
+            P(attrs = { classes("hero-focus") }) { Text("Android · Accessibility · Software architecture") }
+            P(attrs = { classes("hero-note") }) { Text("Associate Principal Engineer at QBurst · Thrissur, Kerala") }
             A(attrs = { href("#about"); classes("hero-link", "scrollto") }) { Text("A little about me ↓") }
         }
     }
@@ -20,10 +20,10 @@ fun AboutSection() {
         Div(attrs = { classes("container") }) {
             SectionTitle("About", Content.getAboutSummary())
             Div(attrs = { classes("row", "align-items-center") }) {
-                Div(attrs = { classes("col-lg-4") }) {
+                Div(attrs = { classes("col-lg-2") }) {
                     Img(src = "/assets/img/profile-img.jpg", alt = "Vimal P Sojan", attrs = { classes("img-fluid", "about-photo") })
                 }
-                Div(attrs = { classes("col-lg-8", "pt-4", "pt-lg-0", "content") }) {
+                Div(attrs = { classes("col-lg-10", "pt-4", "pt-lg-0", "content") }) {
                     H3 { Text(Content.getAboutHeading()) }
                     P { Text(Content.getAboutDetails()) }
                     P { Text("I work mainly with Kotlin, Java and C++, and use Kotlin Multiplatform to explore shared code across platforms.") }
@@ -38,15 +38,16 @@ fun AboutSection() {
 fun WorkSection() {
     Section(attrs = { id("work"); classes("section-bg") }) {
         Div(attrs = { classes("container") }) {
-            SectionTitle("Android development & mobile accessibility", "A few areas I've spent time on in my work.")
+            SectionTitle("Selected work", "Android development, mobile accessibility and reusable software.")
             Div(attrs = { classes("row", "g-4") }) {
                 WorkNote("Accessibility & kiosk software", "At QBurst, I've worked on an Android screen reader for kiosks, including SDK architecture, native integration and support for managed devices.")
-                WorkNote("Android development", "My earlier work includes the ila Bank app through Mindteck, parent and conductor apps at Qaptive, and applications involving messaging, BLE devices and tracking.")
+                WorkNote("Android development", "Earlier Android work spans banking, transport, commerce and connected devices, including reusable components, BLE integration and application development.")
                 WorkNote("SDKs & shared code", "I build reusable SDKs, including a screen-reading library being developed with Kotlin Multiplatform.")
             }
             Div(attrs = { classes("patent-note") }) {
+                P(attrs = { classes("patent-label") }) { Text("US patent · Co-inventor · Granted 2023") }
                 H3 { Text("Screen reader language switching") }
-                P { Text("I'm a co-inventor on a patent for screen reader language switching. I contributed to the technical approach and implementation.") }
+                P { Text("Switching speech language in response to an application’s language selection. My contribution included the technical approach and implementation.") }
                 A(attrs = { href("https://patents.google.com/patent/US11656886B1/en") }) { Text("Read the patent · US11656886B1") }
             }
         }
@@ -67,7 +68,7 @@ fun ProjectsSection() {
         Div(attrs = { classes("container") }) {
             SectionTitle("Game development & side projects", "Personal projects in Unreal Engine, game development tools and Kotlin.")
             Div(attrs = { classes("row", "g-4") }) {
-                Project("SaveGameInspector", "An Unreal Engine editor plugin for inspecting and editing save-game data. I built it for my own workflow and shared it on GitHub.", "SaveGameInspector", "Unreal Engine · C++")
+                Project("SaveGameInspector", "An Unreal Engine editor plugin for browsing, inspecting and editing USaveGame data, with extension points for custom save sources.", "SaveGameInspector", "Unreal Engine · C++ · Editor tooling", "/assets/img/save-game-inspector.png")
                 Project("AdvancedSaveSystem", "An Unreal Engine save-system project exploring asynchronous saves and reusable runtime components.", "AdvancedSaveSystem", "Unreal Engine · C++")
                 Project("Kotlin Multiplatform experiments", "Samples and foundations for exploring shared application logic and Compose across platforms.", "MiltiplatformBase", "Kotlin · Compose")
             }
@@ -79,9 +80,14 @@ fun ProjectsSection() {
 }
 
 @Composable
-private fun Project(title: String, description: String, repo: String, tools: String) {
+private fun Project(title: String, description: String, repo: String, tools: String, screenshot: String? = null) {
     Div(attrs = { classes("col-lg-4") }) {
         Div(attrs = { classes("project-card") }) {
+            if (screenshot != null) {
+                A(attrs = { href("${Content.getGithub()}/$repo"); attr("aria-label", "View $title on GitHub") }) {
+                    Img(src = screenshot, alt = "SaveGameInspector showing save slots and editable Unreal Engine save data", attrs = { classes("project-screenshot"); attr("loading", "lazy"); attr("width", "1785"); attr("height", "1273") })
+                }
+            }
             P(attrs = { classes("project-tools") }) { Text(tools) }
             H3 { A(attrs = { href("${Content.getGithub()}/$repo") }) { Text(title) } }
             P { Text(description) }
