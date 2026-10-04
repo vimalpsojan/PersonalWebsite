@@ -1,21 +1,33 @@
 import androidx.compose.runtime.Composable
-import org.jetbrains.compose.web.dom.I
-import org.jetbrains.compose.web.dom.Main
+import kotlinx.browser.document
+import org.jetbrains.compose.web.dom.*
 import org.jetbrains.compose.web.renderComposable
 
 fun main() {
+    // Replace the visible HTML fallback with the interactive site.
+    document.getElementById("root")?.textContent = ""
     renderComposable(rootElementId = "root") {
-        I(attrs = {
-            classes("bi", "bi-list", "mobile-nav-toggle", "d-xl-none")
-        })
+        A(attrs = { attr("href", "#main"); classes("skip-link") }) { Text("Skip to content") }
+        Button(attrs = {
+            classes("mobile-nav-toggle", "d-xl-none")
+            attr("type", "button")
+            attr("aria-label", "Open navigation")
+            attr("aria-controls", "header")
+            attr("aria-expanded", "false")
+        }) { I(attrs = { classes("bi", "bi-list"); attr("aria-hidden", "true") }) }
         SideBar()
         HeroSection()
         MainBody()
     }
 }
+
 @Composable
-fun MainBody(){
+fun MainBody() {
     Main(attrs = { id("main") }) {
         AboutSection()
+        WorkSection()
+        ProjectsSection()
+        PersonalSection()
+        ContactSection()
     }
 }

@@ -89,7 +89,7 @@ h6 {
   border: 8px solid #2c2f3f;
 }
 
-#header .profile h1 {
+#header .profile .profile-name {
   font-size: 24px;
   margin: 0;
   padding: 0;
@@ -99,8 +99,8 @@ h6 {
   font-family: "Poppins", sans-serif;
 }
 
-#header .profile h1 a,
-#header .profile h1 a:hover {
+#header .profile .profile-name a,
+#header .profile .profile-name a:hover {
   color: #fff;
   text-decoration: none;
 }
@@ -1102,3 +1102,34 @@ section {
     padding-right: 20px 15px;
   }
 }
+/* Personal site refinements */
+#hero .hero-container { padding: 32px; max-width: 900px; }
+#hero .hero-note { font-size: 19px; max-width: 540px; }
+#hero .hero-link { display: inline-block; color: #fff; border-bottom: 1px solid #fff; padding-bottom: 5px; }
+section { scroll-margin-top: 24px; }
+section h3 { font-size: 22px; line-height: 1.4; }
+section p { line-height: 1.8; }
+.about-photo { border-radius: 8px; }
+.quiet-note, .project-tools { color: #596574; }
+.patent-note { margin-top: 36px; padding: 24px; border-left: 3px solid #149ddd; background: #fff; max-width: 900px; }
+.project-card { padding: 24px; height: 100%; border: 1px solid #dce3e9; border-radius: 8px; background: #fff; }
+.project-card h3 a { color: #173b6c; }
+.project-tools { font-size: 14px; margin-bottom: 12px; }
+.projects-more { margin-top: 28px; }
+.personal-copy { max-width: 780px; }
+.contact-links { margin-top: 20px; }
+a:focus-visible, button:focus-visible { outline: 3px solid #149ddd; outline-offset: 5px; }
+.skip-link { position: fixed; top: -100px; left: 20px; z-index: 10000; padding: 12px 20px; background: #fff; color: #173b6c; }
+.skip-link:focus { top: 16px; }
+button.mobile-nav-toggle { border: 0; padding: 0; }
+@media (max-width: 767px) {
+  #hero h1 { font-size: 36px; line-height: 1.2; }
+  #hero p { font-size: 20px; }
+  #hero .hero-note { font-size: 16px; }
+  #hero .hero-container { padding: 24px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation: none !important; transition: none !important; }
+}
+
+.initial-content { max-width: 850px; padding: 48px 24px; }

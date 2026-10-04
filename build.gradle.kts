@@ -1,40 +1,40 @@
-import org.jetbrains.compose.compose
-
 plugins {
-    kotlin("multiplatform") version "1.6.10"
-    id("org.jetbrains.compose") version "1.1.0"
+    kotlin("multiplatform") version "2.4.20"
+    id("org.jetbrains.compose") version "1.12.1"
+    id("org.jetbrains.kotlin.plugin.compose") version "2.4.20"
 }
 
 group = "me.vimal"
 version = "1.0"
 
 repositories {
-    google()
     mavenCentral()
-    maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
+    google()
 }
 
 kotlin {
-    js(IR) {
+    js {
         browser {
+            commonWebpackConfig {
+                outputFileName = "PersonalWebsite.js"
+            }
             testTask {
                 testLogging.showStandardStreams = true
                 useKarma {
                     useChromeHeadless()
-                    useFirefox()
                 }
             }
         }
         binaries.executable()
     }
     sourceSets {
-        val jsMain by getting {
+        named("jsMain") {
             dependencies {
-                implementation(compose.web.core)
-                implementation(compose.runtime)
+                implementation("org.jetbrains.compose.html:html-core:1.12.1")
+                implementation("org.jetbrains.compose.runtime:runtime:1.12.1")
             }
         }
-        val jsTest by getting {
+        named("jsTest") {
             dependencies {
                 implementation(kotlin("test-js"))
             }
