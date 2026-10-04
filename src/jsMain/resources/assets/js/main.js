@@ -92,8 +92,11 @@
    */
   on('click', '.mobile-nav-toggle', function(e) {
     select('body').classList.toggle('mobile-nav-active')
-    this.classList.toggle('bi-list')
-    this.classList.toggle('bi-x')
+    const expanded = select('body').classList.contains('mobile-nav-active')
+    this.setAttribute('aria-expanded', String(expanded))
+    this.setAttribute('aria-label', expanded ? 'Close navigation' : 'Open navigation')
+    this.querySelector('i').classList.toggle('bi-list', !expanded)
+    this.querySelector('i').classList.toggle('bi-x', expanded)
   })
 
   /**
@@ -107,8 +110,10 @@
       if (body.classList.contains('mobile-nav-active')) {
         body.classList.remove('mobile-nav-active')
         let navbarToggle = select('.mobile-nav-toggle')
-        navbarToggle.classList.toggle('bi-list')
-        navbarToggle.classList.toggle('bi-x')
+        navbarToggle.setAttribute('aria-expanded', 'false')
+        navbarToggle.setAttribute('aria-label', 'Open navigation')
+        navbarToggle.querySelector('i').classList.add('bi-list')
+        navbarToggle.querySelector('i').classList.remove('bi-x')
       }
       scrollto(this.hash)
     }
